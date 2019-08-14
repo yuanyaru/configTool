@@ -1,6 +1,7 @@
 function sortNumberAS(a, b) {
     return a - b
 }
+
 function sortNumberDesc(a, b){
     return b - a
 }
