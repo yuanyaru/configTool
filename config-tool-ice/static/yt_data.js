@@ -1,41 +1,41 @@
 var stationId;
 $(document).ready(function () {
-    var elems = document.getElementsByName("yc");
+    var elems = document.getElementsByName("yt");
     for(var i=0;i<elems.length;i++){
         elems[i].addEventListener('click',function(evt){
-            clearYcTable();
+            clearYtTable();
             // jquery对象
             var elm = $(this).parents("li")["1"];
             stationId = $(elm).children().eq(1).text();
-            show_yc_table();
+            show_yt_table();
         })
     }
 });
 
-function show_yc_table() {
+function show_yt_table() {
     document.getElementById("sta_table").style.display="none";
-    document.getElementById("yc_table").style.display="block";
+    document.getElementById("yc_table").style.display="none";
 　　document.getElementById("yx_table").style.display="none";
 　　document.getElementById("yk_table").style.display="none";
-    document.getElementById("yt_table").style.display="none";
+    document.getElementById("yt_table").style.display="block";
 }
 
 // 清空表格
-function clearYcTable() {
-    $("#tBody_yc").text("");
+function clearYtTable() {
+    $("#tBody_yt").text("");
 }
 
 // 显示数据库的数据
-function show_db_yc_data() {
-    $.post("/yc_data", {'stationId': stationId}, function(res){
-        clearYcTable();
+function show_db_yt_data() {
+    $.post("/yt_data", {'stationId': stationId}, function(res){
+        clearYtTable();
         var resLen = res.length;
         if (resLen > 2) {
             // 将JSON字符串反序列化成JSON对象
             var res2Json = JSON.parse(res);
             for(var i = 0; i<res2Json.length; i++) {
-                str = "<tr><td><input type='checkbox' name='yc_ID'/>"
-                + "</td><td name='td1'>" + res2Json[i].id
+                str = "<tr><td><input type='checkbox' name='yt_ID'/>"
+                + "</td><td name='td4'>" + res2Json[i].id
                 + "</td><td>" + res2Json[i].name
                 + "</td><td>" + res2Json[i].describe
                 + "</td><td>" + res2Json[i].unit
@@ -46,7 +46,7 @@ function show_db_yc_data() {
                 + "</td><td>" + res2Json[i].downlimt + "</td></tr>";
 
                 // 追加到table中
-                $("#tBody_yc").append(str);
+                $("#tBody_yt").append(str);
             }
         } else {
             alert("数据库为空，没有数据可显示！");
@@ -55,9 +55,9 @@ function show_db_yc_data() {
 }
 
 // 在表格尾部增添一行
-function addYcRow(){
-    str = "<tr><td><input type='checkbox' class='i-checks' name='yc_ID'/>"
-            + "</td><td name='td1'>"
+function addYtRow(){
+    str = "<tr><td><input type='checkbox' class='i-checks' name='yt_ID'/>"
+            + "</td><td name='td4'>"
             + "</td><td>"
             + "</td><td>"
             + "</td><td>"
@@ -68,13 +68,13 @@ function addYcRow(){
             + "</td><td>"+ "</td></tr>";
 
     // 追加到table中
-    $("#tBody_yc").append(str);
+    $("#tBody_yt").append(str);
 }
 
 // 删除尾部添加的行
-function deleteYcRow() {
+function deleteYtRow() {
     var i = 0
-    $("input[type='checkbox'][name='yc_ID']").each(function() {
+    $("input[type='checkbox'][name='yt_ID']").each(function() {
         if(this.checked) {
             i = i + 1;
             $(this).parents('tr').remove();
@@ -89,14 +89,14 @@ function deleteYcRow() {
 }
 
 // 添加、修改
-function set_yc_data() {
+function set_yt_data() {
     var ids = new Array(); var names = new Array();
     var describes = new Array(); var units = new Array();
     var kvals = new Array(); var bvals = new Array();
     var addresss = new Array(); var uplimts = new Array();
     var downlimts = new Array(); var new_data = new Array();
 
-    $("input[type='checkbox'][name='yc_ID']").each(function() {
+    $("input[type='checkbox'][name='yt_ID']").each(function() {
         if(this.checked) {
             var id = $(this).parents('tr').children().eq(1).text();
             var name = $(this).parents('tr').children().eq(2).text();
@@ -122,10 +122,10 @@ function set_yc_data() {
 
     var new_data_ID_len = new_data[0].length;
     if (new_data_ID_len > 2) {
-        $.post("/set_yc", {'data': JSON.stringify(new_data),
+        $.post("/set_yt", {'data': JSON.stringify(new_data),
                            'stationId': stationId}, function(res){
             alert(res);
-            show_db_yc_data();
+            show_db_yt_data();
             $("input[type='checkbox']").not(this).prop("checked",false);
         });
     } else {
@@ -134,21 +134,21 @@ function set_yc_data() {
 }
 
 // 删除
-function delete_yc_data() {
-    var yc_IDs = new Array();
-    $("input[type='checkbox'][name='yc_ID']").each(function() {
+function delete_yt_data() {
+    var yt_IDs = new Array();
+    $("input[type='checkbox'][name='yt_ID']").each(function() {
         if(this.checked) {
-            var yc_ID = $(this).parents('tr').children().eq(1).text();
-            yc_IDs.push(yc_ID)
+            var yt_ID = $(this).parents('tr').children().eq(1).text();
+            yt_IDs.push(yt_ID)
         }
     });
 
-    var yc_IDs_len = yc_IDs.length;
-    if (yc_IDs_len > 0) {
-        $.post("/delete_yc", {'ids': JSON.stringify(yc_IDs),
+    var yt_IDs_len = yt_IDs.length;
+    if (yt_IDs_len > 0) {
+        $.post("/delete_yt", {'ids': JSON.stringify(yt_IDs),
                               'stationId': stationId}, function(res){
             alert(res);
-            show_db_yc_data();
+            show_db_yt_data();
             $("input[type='checkbox']").not(this).prop("checked",false);
         });
     } else {
@@ -158,7 +158,7 @@ function delete_yc_data() {
 
 // 全选按钮
 $(function() {
-	$("#selectAllYc").bind("click",function(){
+	$("#selectAllYt").bind("click",function(){
 		if($(this).prop("checked")){
 			$("input[type='checkbox']").not(this).prop("checked",true);
 		}else{

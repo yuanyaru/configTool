@@ -11,14 +11,17 @@
     <script type="text/javascript" src="{{ url_for('static', filename='yc_table_sort.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='yx_table_sort.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='yk_table_sort.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='yt_table_sort.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='staexcel.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='ycexcel.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='yxexcel.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='ykexcel.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='ytexcel.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='sta_data.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='yc_data.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='yx_data.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='yk_data.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='yt_data.js')}}"></script>
 </head>
 <body>
 <div id="header">
@@ -204,6 +207,42 @@
     </fieldset>
     <input type="button" onClick="addYkRow();" style="font-size:16px;" value="+"/>
     <input type="button" onClick="deleteYkRow();" style="font-size:16px;" value="-"/>
+</div>
+
+    <div class="row" id="yt_table" style="display: none;">
+    <fieldset>
+        <legend>遥调数据</legend>
+        <span class="mt-sm">
+        <input type="file" id="ytfile" style="display:none;" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+        <a href="javascript:selectYtFile()">加载本地excel文件</a>
+        </span>
+        <input type="button" onClick="set_yt_data();" value="保存"/>
+        <button type="button" onClick="show_db_yt_data();">显示</button>
+        <button type="button" onClick="delete_yt_data();">删除</button>
+        <input type="button" onClick="exportExcel_yt();" value="导出Excel"/>
+        <div id="ytresult" contenteditable>
+            <table id="ytTable" style="background-color:#eeeeee;" bordercolor="#aaaaaa" border="1" cellpadding="0" cellpadding="2" width="100%">
+                <thead>
+                <tr>
+                    <th><input type="checkbox" class="i-checks" id="selectAllYt"/></th>
+                    <th id="th0_yt" onClick="SortTable_yt(this)" class="as">{{ tValue[4][1] }}</th>
+                    <th>{{ tValue[4][2] }}</th>
+                    <th>{{ tValue[4][3] }}</th>
+                    <th>{{ tValue[4][4] }}</th>
+                    <th>{{ tValue[4][5] }}</th>
+                    <th>{{ tValue[4][6] }}</th>
+                    <th>{{ tValue[4][7] }}</th>
+                    <th>{{ tValue[4][8] }}</th>
+                    <th>{{ tValue[4][9] }}</th>
+                </tr>
+                </thead>
+                <tbody id="tBody_yt">
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+    <input type="button" onClick="addYtRow();" style="font-size:16px;" value="+"/>
+    <input type="button" onClick="deleteYtRow();" style="font-size:16px;" value="-"/>
 </div>
 
 </div>
