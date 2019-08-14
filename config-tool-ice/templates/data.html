@@ -8,14 +8,17 @@
     <script type="text/javascript" src="{{ url_for('static', filename='xlsx.core.min.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='jquery.treeview.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='sta_table_sort.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='yx_table_sort.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='yc_table_sort.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='ycexcel.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='yc_data.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='yxexcel.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='yx_data.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='yx_table_sort.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='yk_table_sort.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='staexcel.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='ycexcel.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='yxexcel.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='ykexcel.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='sta_data.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='yc_data.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='yx_data.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='yk_data.js')}}"></script>
 </head>
 <body>
 <div id="header">
@@ -43,7 +46,7 @@
 						<li><span class="file" name="yk">遥控</span></li>
 					</ul>
 					<ul>
-						<li><span class="file"name="yt">遥调</span></li>
+						<li><span class="file" name="yt">遥调</span></li>
 					</ul>
 					<ul>
 						<li><span class="file" name="soe">SOE</span></li>
@@ -151,7 +154,7 @@
                     <th>{{ tValue[2][6] }}</th>
                     <th>{{ tValue[2][7] }}</th>
                     <th>{{ tValue[2][8] }}</th>
-                    <th>{{ tValue[2][9] }}</th>/
+                    <th>{{ tValue[2][9] }}</th>
                     <th>{{ tValue[2][10] }}</th>
                     <th>{{ tValue[2][11] }}</th>
                     <th>{{ tValue[2][12] }}</th>
@@ -182,7 +185,7 @@
                 <thead>
                 <tr>
                     <th><input type="checkbox" class="i-checks" id="selectAllYk"/></th>
-                    <th id="th0_yk" onClick="SortTable_yx(this)" class="as">{{ tValue[3][1] }}</th>
+                    <th id="th0_yk" onClick="SortTable_yk(this)" class="as">{{ tValue[3][1] }}</th>
                     <th>{{ tValue[3][2] }}</th>
                     <th>{{ tValue[3][3] }}</th>
                     <th>{{ tValue[3][4] }}</th>
@@ -190,7 +193,7 @@
                     <th>{{ tValue[3][6] }}</th>
                     <th>{{ tValue[3][7] }}</th>
                     <th>{{ tValue[3][8] }}</th>
-                    <th>{{ tValue[3][9] }}</th>/
+                    <th>{{ tValue[3][9] }}</th>
                     <th>{{ tValue[3][10] }}</th>
                 </tr>
                 </thead>
