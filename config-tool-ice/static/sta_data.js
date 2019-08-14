@@ -108,7 +108,7 @@ function getStation() {
 }
 
 // 显示数据库的数据
-function show_db_station_data() {
+function show_db_sta_data() {
     $.get("/station_data", function(res){
         clearStaTable();
         var resLen = res.length;
@@ -136,7 +136,7 @@ function show_db_station_data() {
 }
 
 // 在表格尾部增添一行
-function addStationRow(){
+function addStaRow(){
     str = "<tr><td><input type='checkbox' class='i-checks' name='station_ID'/>"
             + "</td><td name='td0'>"
             + "</td><td>"
@@ -151,7 +151,7 @@ function addStationRow(){
 }
 
 // 删除尾部添加的行
-function deleteStationRow() {
+function deleteStaRow() {
     var i = 0
     $("input[type='checkbox'][name='station_ID']").each(function() {
         if(this.checked) {
@@ -210,7 +210,7 @@ function set_sta_data() {
 }
 
 // 删除
-function delete_station_data() {
+function delete_sta_data() {
     var station_IDs = new Array();
     $("input[type='checkbox'][name='station_ID']").each(function() {
         if(this.checked) {
@@ -234,7 +234,7 @@ function delete_station_data() {
 
 // 全选按钮
 $(function() {
-	$("#selectAllStation").bind("click",function(){
+	$("#selectAllSta").bind("click",function(){
 		if($(this).prop("checked")){
 			$("input[type='checkbox']").not(this).prop("checked",true);
 		}else{

@@ -74,14 +74,14 @@
         <a href="javascript:selectStaFile()">加载本地excel文件</a>
         </span>
         <input type="button" onClick="set_sta_data();" value="保存"/>
-        <button type="button" onClick="show_db_station_data();">显示</button>
-        <button type="button" onClick="delete_station_data();">删除</button>
+        <button type="button" onClick="show_db_sta_data();">显示</button>
+        <button type="button" onClick="delete_sta_data();">删除</button>
         <input type="button" onClick="exportExcel_sta();" value="导出Excel"/>
         <div id="staresult" contenteditable>
             <table id="staTable" style="background-color:#eeeeee;" bordercolor="#aaaaaa" border="1" cellpadding="0" cellpadding="2" width="100%">
                 <thead>
                 <tr>
-                    <th><input type="checkbox" class="i-checks" id="selectAllStation"/></th>
+                    <th><input type="checkbox" class="i-checks" id="selectAllSta"/></th>
                     <th id="th0_sta" onClick="SortTable_sta(this)" class="as">{{ tValue[0][0] }}</th>
                     <th>{{ tValue[0][1] }}</th>
                     <th>{{ tValue[0][2] }}</th>
@@ -96,8 +96,8 @@
             </table>
         </div>
     </fieldset>
-    <input type="button" onClick="addStationRow();" style="font-size:16px;" value="+"/>
-    <input type="button" onClick="deleteStationRow();" style="font-size:16px;" value="-"/>
+    <input type="button" onClick="addStaRow();" style="font-size:16px;" value="+"/>
+    <input type="button" onClick="deleteStaRow();" style="font-size:16px;" value="-"/>
 </div>
 
     <div class="row" id="yc_table" style="display: none;">
@@ -284,7 +284,6 @@
     <input type="button" onClick="addSoeRow();" style="font-size:16px;" value="+"/>
     <input type="button" onClick="deleteSoeRow();" style="font-size:16px;" value="-"/>
 </div>
-
 </div>
 
 <div id="footer">
