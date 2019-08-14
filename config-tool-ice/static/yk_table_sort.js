@@ -1,4 +1,4 @@
-function SortTable_yx(obj){
+function SortTable_yk(obj){
     var td3s=document.getElementsByName("td3");
     var tdArray3=[];
 
