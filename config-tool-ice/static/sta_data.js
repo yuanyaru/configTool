@@ -91,9 +91,9 @@ function getStation() {
                 '<span class="folder" id="staName">'+ res2Json[i].name +'</span>'+
                 '<ul><li>'+'<span class="file" name="yx">遥信</span>'+'</li></ul>'+
                 '<ul><li>'+'<span class="file" name="yc">遥测</span>'+'</li></ul>'+
-                '<ul><li>'+'<span class="file">遥控</span>'+'</li></ul>'+
-                '<ul><li>'+'<span class="file">遥调</span>'+'</li></ul>'+
-                '<ul><li>'+'<span class="file">SOE</span>'+'</li></ul>'+
+                '<ul><li>'+'<span class="file" name="yk">遥控</span>'+'</li></ul>'+
+                '<ul><li>'+'<span class="file" name="yt">遥调</span>'+'</li></ul>'+
+                '<ul><li>'+'<span class="file" name="soe">SOE</span>'+'</li></ul>'+
                 '</li></ul>';
 
             $("#station").append(str2);
@@ -195,12 +195,11 @@ function set_sta_data() {
     new_data.push(JSON.stringify(ruleIDs)); new_data.push(JSON.stringify(addresss));
     new_data.push(JSON.stringify(PORTs)); new_data.push(JSON.stringify(roles));
 
-
     var new_data_ID_len = new_data[0].length;
     if (new_data_ID_len > 2) {
         $.post("/set_station", {'data': JSON.stringify(new_data)}, function(res){
             alert(res);
-            show_db_station_data();
+            show_db_sta_data();
             $("input[type='checkbox']").not(this).prop("checked",false);
             getStation();
         });
@@ -223,7 +222,7 @@ function delete_sta_data() {
     if (station_IDs_len > 0) {
         $.post("/delete_station", {'ids': JSON.stringify(station_IDs)}, function(res){
             alert(res);
-            show_db_station_data();
+            show_db_sta_data();
             $("input[type='checkbox']").not(this).prop("checked",false);
             getStation();
         });
