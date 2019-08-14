@@ -24,6 +24,19 @@ function ycTableClick() {
     }
 }
 
+function ykTableClick() {
+    var elems = document.getElementsByName("yk");
+    for(var i=0;i<elems.length;i++){
+        elems[i].addEventListener('click',function(evt){
+            clearYkTable();
+            // jquery对象
+            var elm = $(this).parents("li")["1"];
+            stationId = $(elm).children().eq(0).text();
+            show_yk_table();
+        })
+    }
+}
+
 function show_sta_table() {
 　　document.getElementById("sta_table").style.display="block";
     document.getElementById("yx_table").style.display="none";
@@ -60,6 +73,7 @@ function getStation() {
         $("#browser").treeview();
         yxTableClick();
         ycTableClick();
+        ykTableClick();
     });
 }
 
