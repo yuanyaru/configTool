@@ -11,6 +11,7 @@ from yxproperty import yx_blu
 from ycproperty import yc_blu
 from ykproperty import yk_blu
 from ytproperty import yt_blu
+from soeproperty import soe_blu
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -22,6 +23,7 @@ app.register_blueprint(yx_blu)
 app.register_blueprint(yc_blu)
 app.register_blueprint(yk_blu)
 app.register_blueprint(yt_blu)
+app.register_blueprint(soe_blu)
 
 
 def get_property_table():
@@ -36,7 +38,6 @@ def get_property_table():
 def index():
     table = get_property_table()
     result = get_station_property()
-    print table[4]
     return render_template('data.html', tValue=table, staValue=result, staLen=len(result))
 
 

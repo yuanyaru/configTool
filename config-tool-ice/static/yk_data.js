@@ -18,6 +18,7 @@ function show_yk_table() {
 　　document.getElementById("yx_table").style.display="none";
 　　document.getElementById("yk_table").style.display="block";
 　　document.getElementById("yt_table").style.display="none";
+　　document.getElementById("soe_table").style.display="none";
 }
 
 // 清空表格

@@ -50,12 +50,26 @@ function ytTableClick() {
     }
 }
 
+function soeTableClick() {
+    var elems = document.getElementsByName("soe");
+    for(var i=0;i<elems.length;i++){
+        elems[i].addEventListener('click',function(evt){
+            clearSoeTable();
+            // jquery对象
+            var elm = $(this).parents("li")["1"];
+            stationId = $(elm).children().eq(0).text();
+            show_soe_table();
+        })
+    }
+}
+
 function show_sta_table() {
 　　document.getElementById("sta_table").style.display="block";
     document.getElementById("yc_table").style.display="none";
     document.getElementById("yx_table").style.display="none";
     document.getElementById("yk_table").style.display="none";
     document.getElementById("yt_table").style.display="none";
+    document.getElementById("soe_table").style.display="none";
 }
 
 // 清空表格
@@ -89,6 +103,7 @@ function getStation() {
         yxTableClick();
         ykTableClick();
         ytTableClick();
+        soeTableClick();
     });
 }
 
