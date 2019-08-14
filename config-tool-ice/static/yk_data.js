@@ -33,8 +33,8 @@ function show_db_yk_data() {
             // 将JSON字符串反序列化成JSON对象
             var res2Json = JSON.parse(res);
             for(var i = 0; i<res2Json.length; i++) {
-                str = "<tr><td><input type='checkbox' name='yx_ID'/>"
-                + "</td><td name='td1'>" + res2Json[i].ID
+                str = "<tr><td><input type='checkbox' name='yk_ID'/>"
+                + "</td><td name='td3'>" + res2Json[i].ID
                 + "</td><td>" + res2Json[i].name
                 + "</td><td>" + res2Json[i].describe
                 + "</td><td>" + res2Json[i].ASDU
