@@ -5,7 +5,7 @@ function yxTableClick() {
             clearYxTable();
             // jquery对象
             var elm = $(this).parents("li")["1"];
-            stationId = $(elm).children().eq(0).text();
+            stationId = $(elm).children().eq(1).text();
             show_yx_table();
         })
     }
@@ -18,7 +18,7 @@ function ycTableClick() {
             clearYcTable();
             // jquery对象
             var elm = $(this).parents("li")["1"];
-            stationId = $(elm).children().eq(0).text();
+            stationId = $(elm).children().eq(1).text();
             show_yc_table();
         })
     }
@@ -31,7 +31,7 @@ function ykTableClick() {
             clearYkTable();
             // jquery对象
             var elm = $(this).parents("li")["1"];
-            stationId = $(elm).children().eq(0).text();
+            stationId = $(elm).children().eq(1).text();
             show_yk_table();
         })
     }
@@ -44,7 +44,7 @@ function ytTableClick() {
             clearYtTable();
             // jquery对象
             var elm = $(this).parents("li")["1"];
-            stationId = $(elm).children().eq(0).text();
+            stationId = $(elm).children().eq(1).text();
             show_yt_table();
         })
     }
@@ -57,7 +57,7 @@ function soeTableClick() {
             clearSoeTable();
             // jquery对象
             var elm = $(this).parents("li")["1"];
-            stationId = $(elm).children().eq(0).text();
+            stationId = $(elm).children().eq(1).text();
             show_soe_table();
         })
     }
